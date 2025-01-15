@@ -183,7 +183,7 @@ class VagrantImageProtocol(BaseImageProtocol):
         # images put these in subdirectories. Try to detect that.
         with tarfile.open(fileobj=box_file, mode="r") as tar:
             image_info = [
-                info for info in tar.getmembers() if info.name.endswith("box.img")
+                info for info in tar.getmembers() if info.name.endswith(".img")
             ][0]
             in_stream = tar.extractfile(image_info.name)
             assert in_stream is not None
