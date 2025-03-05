@@ -70,17 +70,17 @@ unittest:
 unittest-coverage:
 	pytest -v $(UNITTEST_DIRS) --cov=transient --cov-report=term --cov-report=html:artifacts/coverage/html
 
-$(TRANSIENT_INITRAMFS) $(TRANSIENT_KERNEL): $(TRANSIENT_KCONFIG) $(TRANSIENT_BUILDROOT_CONFIG)
-	cp $(TRANSIENT_BUILDROOT_CONFIG) kernel/buildroot/.config
-	make -C kernel/buildroot
-	cp kernel/buildroot/output/images/bzImage $(TRANSIENT_KERNEL)
-	cp kernel/buildroot/output/images/rootfs.cpio.gz $(TRANSIENT_INITRAMFS)
+#$(TRANSIENT_INITRAMFS) $(TRANSIENT_KERNEL): $(TRANSIENT_KCONFIG) $(TRANSIENT_BUILDROOT_CONFIG)
+#	cp $(TRANSIENT_BUILDROOT_CONFIG) kernel/buildroot/.config
+#	make -C kernel/buildroot
+#	cp kernel/buildroot/output/images/bzImage $(TRANSIENT_KERNEL)
+#	cp kernel/buildroot/output/images/rootfs.cpio.gz $(TRANSIENT_INITRAMFS)
 
-.PHONY: kernel
-kernel: $(TRANSIENT_KERNEL)
+#.PHONY: kernel
+#kernel: $(TRANSIENT_KERNEL)
 
-.PHONY: initramfs
-initramfs: $(TRANSIENT_INITRAMFS)
+#.PHONY: initramfs
+#initramfs: $(TRANSIENT_INITRAMFS)
 
 .PHONY: docs
 docs:
